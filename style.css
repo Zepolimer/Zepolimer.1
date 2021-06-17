@@ -6,71 +6,56 @@
   /* ### Neutral */
   --dark-gray: hsl(0, 0%, 59%);
 }
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  width: 100vw;
+  height: 100%;
   font-size: 18px;
   font-family: "Kumbh Sans", sans-serif;
-  margin: 0;
-  box-sizing: border-box;
-  padding: 0;
   background-color: var(--dark-cyan);
-  overflow: hidden;
+  background-image: url(./images/bg-pattern-top.svg), url(./images/bg-pattern-bottom.svg);
+  background-repeat: no-repeat;
+  background-size: 800px, 800px;
+  background-position: top -50vh right 50vw, bottom -50vh left 50vw;
 }
 
-main {
-  display: grid;
+.main-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  height: auto;
 }
 
-.bg-top {
-  background-image: url(./images/bg-pattern-top.svg);
-  background-position: right bottom;
-  background-repeat: no-repeat;
-  position: absolute;
-  right: 50%;
-  bottom: 50%;
-  z-index: -1;
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.bg-bottom {
-  background-image: url(./images/bg-pattern-bottom.svg);
-  background-position: left top;
-  background-repeat: no-repeat;
-  position: absolute;
-  left: 40%;
-  top: 40%;
-  z-index: -1;
-}
-
+/* MAIN CARD */
 .card {
   background: white;
   border-radius: 15px;
-  overflow: hidden;
-  max-width: 375px;
-  margin: auto;
-  margin-top: 100px;
-  box-shadow: hsl(229, 23%, 23%, 3.7);
+  width: 80%;
 }
-
-@media (max-width: 800px) {
-  .card{
-    max-width: 300px;
-  }
-}
-
 .card:hover {
   cursor: pointer;
 }
 
+/* HEADER OF CARD WITH BLUE BG */
 .card-header {
-  height: 150px;
+  height: 140px;
   background-image: url(./images/bg-pattern-card.svg);
+  border-radius: 10px 10px 0 0;
 }
 
 .victor {
@@ -82,23 +67,25 @@ main {
 }
 
 .card-body {
-  padding-top: 60px;
+  padding-top: 80px;
   text-align: center;
 }
 
-p {
-  font-weight: 700;
-}
+p { font-weight: 700; }
 
 .grey {
   color: hsl(0, 0%, 59%);
   font-weight: 400;
 }
-
-.card-footer {
-  display: grid;
-  height: 98px;
+.gray {
+  font-size: 12px;
+  color: hsl(0, 0%, 59%);
+  font-weight: 300;
+  padding: 10px 0 20px 0;
 }
+
+/* CARD FOOTER WITH NUMBERS  */
+.card-footer { height: 90px; }
 
 ul {
   list-style-type: none;
@@ -124,4 +111,10 @@ li span {
 
 .attribution {
   padding-top: 190px;
+}
+
+@media (min-width: 500px) {
+  .card {
+    width: 400px;
+  }
 }
